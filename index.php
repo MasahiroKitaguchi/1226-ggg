@@ -127,6 +127,7 @@ $units = [
   ];
 
 function get_rare($rarity){
+  $sum_weight = 0;
 
   for ($i=0; $i < count($rarity); $i++) {
       $sum_weight += $rarity[$i][3];
@@ -160,12 +161,16 @@ $rands = rand(0, (count($array_units)-1));
 $get_unit = $array_units[$rands];
 
 ?>
+<?php
 
-  <div>
-    <input type="text" name="aaa" value="<?php echo "ID:".$get_unit[0]." ".$get_unit[1]; ?>">
-  </div>
+if($_POST['result'] == True){
+  print "あなたは{$_POST['result']}を獲得しました。<br/>";
+}
+
+?>
   <form method="POST" action="index.php">
-    <input type="submit" value="更新">
+    <input type = "hidden" name="result" value="<?php echo $get_unit[1]; ?>" />
+    <input type="submit" value="kousin" />
   </form>
 </body>
 </html>
