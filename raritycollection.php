@@ -12,25 +12,25 @@ class RarityCollection
         $this->rarities = $rarities;
     }
 
-    public function LotteryRare(): Rarity
+    public function lotteryRare(): Rarity
     {
         // 抽選処理
         $sum_weight = 0;
         foreach ($this->rarities as $rarity)
         {
-            $sum_weight += $rarity->get_rate();
+            $sum_weight += $rarity->getRate();
         }
         $rand = rand(1, $sum_weight);
         foreach($this->rarities as $rarity)
         {
-            if (($sum_weight -= $rarity->get_rate()) < $rand)
+            if (($sum_weight -= $rarity->getRate()) < $rand)
             {
                 return $rarity;
             }
         }
     }
 
-    public function LotteryMultiRare(int $num): Array
+    public function lotteryMultiRare(int $num): Array
     {
         $select_rares = [];
         for ($i=0; $i < $num; $i++) {

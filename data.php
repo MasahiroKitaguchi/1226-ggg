@@ -120,7 +120,6 @@ foreach ($rarity as $rare)
 {
     $rares[$rare[0]] = new Rarity($rare[0], $rare[1], $rare[2], $rare[3]);
 }
-$rarities = new RarityCollection($rares);
 
 // Unitclass object
 $unites = [];
@@ -128,8 +127,5 @@ foreach ($units as $unit)
 {
     $unites[$unit[0]] = new Unit($unit[0], $unit[1], $rares[$unit[2]]);
 }
-
-
-$unit_array = new UnitCollection($unites);
 
 ?>

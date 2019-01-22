@@ -12,18 +12,16 @@ class Rarity extends Information
     public function __construct(int $id, string $name, int $value, int $rate)
     {
         parent::__construct($id, $name);
-        $this->id = $id;
-        $this->name = $name;
         $this->value = $value;
         $this->rate = $rate;
     }
 
-    public function get_rate(): int
+    public function getRate(): int
     {
         return $this->rate;
     }
 
-    public function get_rarity(): int
+    public function getRarity(): int
     {
         return $this->value;
     }

@@ -14,12 +14,15 @@
     require_once("unitcollection.php");
     require_once("data.php");
 
+    $rarities = new RarityCollection($rares);
+    $units_array = new UnitCollection($unites);
+
     print_r("<br>"."///////////////"."<br>");
     echo "<br>";
     // /***
     if(@$_POST['gacha'] == True){
         $v = filter_input(INPUT_POST, 'gacha');
-        $results = $unit_array->SelectUnit($rarities, $v);
+        $results = $units_array->selectUnit($rarities, $v);
 
         foreach ($results as $key => $value) {
             print_r(($key+1).". ".$value."<br>");

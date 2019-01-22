@@ -9,16 +9,13 @@ class Unit extends Information
     public function __construct(int $id, string $name, Rarity $rarity)
     {
         parent::__construct($id, $name);
-
-        $this->id = $id;
-        $this->name = $name;
         $this->rarity = $rarity;
     }
 
-    public function get_rare(): int
+    public function getRare(): int
     {
         $a = $this->rarity;
-        return $a->get_rarity();
+        return $a->getRarity();
     }
 
 }

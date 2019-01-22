@@ -5,38 +5,38 @@ class UnitCollection
     /**
     * @param Unit[]
     */
-    public function __construct(array $unites)
+    public function __construct(array $units)
     {
-        $this->unites = $unites;
+        $this->units = $units;
     }
 
-    public function get_units(): Unit
+    public function getUnits(): Unit
     {
-        return $this->unites;
+        return $this->units;
     }
 
 
-    public function filter_units(int $unit_rare): Array
+    private function filterUnits(int $unit_rare): Array
     {
         $array_rare = [];
-        foreach ($this->unites as $unit) {
-            if ($unit->get_rare() == $unit_rare) {
+        foreach ($this->units as $unit) {
+            if ($unit->getRare() == $unit_rare) {
                 array_push($array_rare, $unit);
             }
         }
         return $array_rare;
     }
 
-    public function SelectUnit(RarityCollection $rarities, int $num)
+    public function selectUnit(RarityCollection $rarities, int $num)
     {
         $lottery_units = [];
-        $result_rares = $rarities->LotteryMultiRare($num);
+        $result_rares = $rarities->lotteryMultiRare($num);
 
         foreach ($result_rares as $rares)
         {
-            $unit_rare = Self::filter_units($rares->get_rarity());
+            $unit_rare = Self::filterUnits($rares->getRarity());
             $rands = rand(0, count($unit_rare)-1);
-            $result = $unit_rare[$rands]->get_name();
+            $result = $unit_rare[$rands]->getName();
 
             array_push($lottery_units, $result);
         }
